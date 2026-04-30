@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cmdfilter"
+version = "0.1.1"
+description = "Declarative query filters for Python objects"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+keywords = ["filtering", "matching", "query", "selector"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/Prevalex/cmdfilter"
+Issues = "https://github.com/Prevalex/cmdfilter/issues"
+
+[project.optional-dependencies]
+test = ["pytest>=8.0", "rapidfuzz>=3.0"]
+dev = ["build>=1.2", "mypy>=1.10", "pytest>=8.0", "rapidfuzz>=3.0", "ruff>=0.11", "twine>=5.0"]
+publish = ["build>=1.2", "twine>=5.0"]
+
+[tool.setuptools]
+packages = ["cmdfilter"]
+include-package-data = true
+
+[tool.pytest.ini_options]
+testpaths = ["Tests"]
+python_files = ["test_*.py"]
+addopts = "-ra"
+
+[tool.mypy]
+python_version = "3.11"
+files = ["cmdfilter"]
+exclude = ["^Tests/"]
+warn_unused_ignores = true
+warn_redundant_casts = true
+show_error_codes = true
+pretty = true
+
+[tool.pyright]
+include = ["."]
+exclude = ["Tests", "**/__pycache__"]
+pythonVersion = "3.11"
+typeCheckingMode = "basic"
+reportMissingTypeStubs = "none"
+
+[tool.ruff]
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["F", "I"]
