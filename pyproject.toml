@@ -35,7 +35,7 @@ packages = ["cmdfilter"]
 include-package-data = true
 
 [tool.pytest.ini_options]
-testpaths = ["Tests"]
+testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "-ra"
 
